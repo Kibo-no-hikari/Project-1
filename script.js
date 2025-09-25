@@ -6,6 +6,7 @@ let uppwecase = document.getElementById("uppercase");
 let numbers = document.getElementById("numbers");
 let symbols = document.getElementById("symbol");
 let genBtn = document.getElementById("genBtn");
+let copyIcon = document.getElementById("copyIcon");
 
 
 // Showing input slider value
@@ -18,22 +19,44 @@ genBtn.addEventListener('click',()=>{
     passBox.value = generatePassword();
 });
 
-let lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-let uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let allnumberChars = "0123456789";
-let allsymbolChars = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+let lowerChars = "abcdefghijklmnopqrstuvwxyz";
+let upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let allNumbers = "0123456789";
+let allSymbols = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
 
 // Function to generate password
 function generatePassword(){
-    let generatePassword="";
-    let allChars = "";
-
-    allChars
+    let genPassword="";
+    let allChars = ""; 
 
 
-    //genPassword =upperChars.charAt(Math.floorloor( Math.random() *upperChars.length));
+    allChars += lowercase.checked ? lowerChars : "";
+    allChars += uppwecase.checked ? upperChars : "";
+    allChars += numbers.checked ? allNumbers : "";
+    allChars += symbols.checked ? allSymbols : "";
+
+
+    if(allChars =="" || allChars.length == 0){
+        return genPassword;
+    }
+    let i=1;
+    while(i<=inputSlider.value){
+        genPassword += allChars.charAt(Math.floor( Math.random() * allChars.length));
+        i++;
+    }
+
     return genPassword;
 }
 
 
+copyIcon.addEventListener('click',()=>{
+    if(passBox.value != "" || passBox.value.length >= 1){
+    navigator.clipboard.writeText(passBox.value);
+    copyIcon.innerText = "check";
+    copyIcon.title = "Password Copied";
 
+    setTimeout(()=>{
+        copyIcon.innerHTML= "content_copy";
+        copyIcon.title = "";
+    },3000)
+}});

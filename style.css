@@ -14,10 +14,11 @@ body{
     background: linear-gradient(to right bottom,#ff7c4d,#16e1d3);
     color: 
     #fff;
+    font-weight: 600;
 }
 
 .container{
-    border:0.5px solid #fff;
+ border:0.5px solid #fff;
     border-radius: 10px;
     padding: 28px 32px;
     display: flex;
@@ -32,6 +33,19 @@ body{
     font-size: 1.4rem;
     margin-block: 8px;
 }
+
+.inputBox{
+    position: relative;
+}
+.inputBox span{
+    position: absolute;
+    right: 10px;
+    top: 30%;
+    color: #000;
+    font-size: 25px;
+    z-index: 2;
+}
+
 .passBox{
    background-color: #fff;
    border: none;
@@ -41,6 +55,8 @@ body{
     border-radius: 4px;
     font-size: 20px;
     margin-block: 8px;
+    cursor: pointer;
+    text-overflow: ellipsis;
 }
 
 .row{
