@@ -12,15 +12,15 @@
             <h1>Password Generator</h1>
         
             <div class="inputBox">
-                <input type="text" class="passBox" 
+                <input type="text" class="passBox" id="passBox" 
                 disabled>
             </div>
 
-            <input type="range" min="2" max="30" value="8" >
+            <input type="range" min="2" max="30" value="8" id="inputSlider">
 
             <div class="row">
                 <p>Password Length</p>
-                <span> 4</span>
+                <span id="sliderValue"> </span>
             </div>
             <div class="row">
                 <label for="lowercase">Including lowercase 
@@ -43,7 +43,8 @@
             </label>
             <input type="checkbox" name="symbol" id="symbol">
         </div>
-        <button type="button" class="genBtn">Generate Password</button>
+        <button type="button" class="genBtn" id="genBtn">
+            Generate Password</button>
     </div>   
 </body>
 </html>
